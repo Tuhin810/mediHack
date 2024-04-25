@@ -2,10 +2,11 @@ import React from "react";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 
 import HomeHead from "../../components/main/home/homeHead/HomeHead";
+import Color from "../../constants/Color";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Color.background }}>
       <View style={styles.container}>
         <HomeHead />
       </View>

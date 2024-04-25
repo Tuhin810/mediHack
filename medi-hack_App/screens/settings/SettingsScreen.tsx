@@ -19,7 +19,7 @@ export default function SettingsScreen() {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
       <View style={styles.container}>
         <Header />
 
@@ -218,7 +218,7 @@ export default function SettingsScreen() {
           <Text style={styles.contentFooter}>App Version 2.24 #50491</Text>
         </ScrollView>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
