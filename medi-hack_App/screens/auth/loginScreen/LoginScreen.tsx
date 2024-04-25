@@ -15,8 +15,9 @@ import { useNavigation } from "expo-router";
 
 export default function LoginScreen() {
   const navigation: any = useNavigation();
-  const handleNavigate = () => {
-    navigation.navigate("signupPage");
+  const handleNavigate = (route: any) => {
+    // navigation.navigate("signupPage");
+    navigation.navigate(route);
   };
   const [form, setForm] = useState({
     email: "",
@@ -77,11 +78,7 @@ export default function LoginScreen() {
             </View>
 
             <View style={globalStyles.formAction}>
-              <TouchableOpacity
-                onPress={() => {
-                  // handle onPress
-                }}
-              >
+              <TouchableOpacity onPress={() => handleNavigate("dashBoard")}>
                 <View style={globalStyles.btn}>
                   <Text style={globalStyles.btnText}>Sign in</Text>
                 </View>
@@ -89,7 +86,7 @@ export default function LoginScreen() {
             </View>
 
             <Text style={globalStyles.formLink}>OR</Text>
-            <TouchableOpacity onPress={handleNavigate}>
+            <TouchableOpacity onPress={() => handleNavigate("signupPage")}>
               <Text style={globalStyles.formFooter}>
                 Don't have an account?{" "}
                 <Text style={{ textDecorationLine: "underline" }}>Sign up</Text>

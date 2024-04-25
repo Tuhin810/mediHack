@@ -49,6 +49,8 @@ function RootLayoutNav() {
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="signupPage" options={{ headerShown: false }} />
       <Stack.Screen name="loginPage" options={{ headerShown: false }} />
+      <Stack.Screen name="dashBoard" options={{ headerShown: false }} />
+      <Stack.Screen name="settingsPage" options={{ headerShown: false }} />
     </Stack>
   );
 }
