@@ -12,7 +12,7 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import Color from "../../../../constants/Color";
 import { useNavigation } from "expo-router";
 
-const HomeHead = () => {
+const HomeHead = ({ openDrawer }: any) => {
   const navigation: any = useNavigation();
   const handleNavigate = () => {
     navigation.navigate("settingsPage");
@@ -20,26 +20,17 @@ const HomeHead = () => {
   return (
     <View>
       <View style={styles.actionWrapper}>
-        <TouchableOpacity
-          onPress={handleNavigate}
-          style={{ marginRight: "auto" }}
-        >
-          <View style={styles.actionAvatar}>
-            <Image
-              alt=""
-              source={{
-                uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
-              }}
-              style={styles.avatar}
-            />
-          </View>
+        <TouchableOpacity onPress={handleNavigate} style={styles.actionAvatar}>
+          <Image
+            alt=""
+            source={{
+              uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
+            }}
+            style={styles.avatar}
+          />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            // handle onPress
-          }}
-        >
+        <TouchableOpacity onPress={openDrawer}>
           <View style={styles.action}>
             <Feather color="black" name="bell" size={22} />
           </View>
@@ -119,6 +110,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
     elevation: 2,
+    marginRight: "auto",
   },
   actionWrapper: {
     flexDirection: "row",
