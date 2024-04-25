@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { ScrollView, Switch, TouchableOpacity, View, Text } from "react-native";
-
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  Switch,
+  Image,
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
 import Header from "../../components/shared/header/Header";
-import styles from "../../components/main/settings/styles";
-import ProfileSection from "../../components/main/settings/profileSection/ProfileSection";
-import SettingsSection from "../../components/main/settings/settingSection/SettingsSection";
-import LogoutSection from "../../components/main/settings/logoutSection/LogoutSection";
 
-const settingsOptions = [
+export const settingsOptions = [
   {
     title: "Preferences",
     options: [
@@ -49,33 +54,3 @@ const settingsOptions = [
     ],
   },
 ];
-
-const SettingsScreen = () => {
-  const [form, setForm] = useState({
-    emailNotifications: true,
-    pushNotifications: false,
-  });
-
-  return (
-    <ScrollView style={styles.scrollView}>
-      <View style={styles.container}>
-        <Header />
-        <ScrollView contentContainerStyle={styles.content}>
-          <ProfileSection />
-          {settingsOptions.map(({ title, options }, index) => (
-            <SettingsSection
-              key={index}
-              title={title}
-              options={options}
-              form={form}
-              setForm={setForm}
-            />
-          ))}
-          <LogoutSection />
-        </ScrollView>
-      </View>
-    </ScrollView>
-  );
-};
-
-export default SettingsScreen;
