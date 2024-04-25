@@ -6,21 +6,26 @@ import {
   DrawerLayoutAndroid,
   Dimensions,
 } from "react-native";
-
 import HomeHead from "../../components/main/home/homeHead/HomeHead";
 import Color from "../../constants/Color";
 import Drawer from "../../components/main/drawer/Drawer";
 
-export default function HomeScreen({ openDrawer }: any) {
-  const drawerRef = useRef(null);
+export default function HomeScreen() {
+  const drawerRef = useRef<DrawerLayoutAndroid>(null);
 
-  const screenWidth = Dimensions.get("window").width;
-  const drawerWidth = screenWidth * 0.8;
+  const openDrawer = () => {
+    if (drawerRef.current) {
+      console.log("Opening drawer");
+      drawerRef.current.openDrawer();
+    } else {
+      console.warn("Drawer reference is null. Unable to open drawer.");
+    }
+  };
 
   return (
     <DrawerLayoutAndroid
       ref={drawerRef}
-      drawerWidth={drawerWidth}
+      drawerWidth={300} // Hard-coding drawer width temporarily
       drawerPosition="right"
       renderNavigationView={Drawer}
     >
